@@ -79,12 +79,17 @@ update_internals() {
 	APP_REV=`curl -s https://api.github.com/repos/eribbey/odroid-utility/git/refs/heads/master | awk '{ if ($1 == "\"sha\":") { print substr($2, 2, 40) } }'`
 	
 	for fu in $FILES; do
-		echo "Updating: $fu"
-		rm -fr $_B/$fu
-		curl -s $baseurl/$fu > $_B/$fu
+		echo "Checking: $fu"
+		online_md5="$(curl -sL $baseurl/$fu | md5sum | cut-d ' ' -f 1)"
+		local_md5="$(md5sum $_B/$fu | cut -d ' ' -f 1)"
+		if [ "$online_md5" != "$local_md5" ]; then	
+			echo "Updating: $fu"
+			rm -fr $_B/$fu
+			curl -s $baseurl/$fu > $_B/$fu
+			fi
 	done
-
-	export _REV="1.4.1 GitRev: $APP_REV"
+	export _REV="1.4.1 Board: $BOARD"
+	#export _REV="1.4.1 GitRev: $APP_REV"
 	
 	chmod +x $_B/odroid-utility.sh
 }
