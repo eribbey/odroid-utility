@@ -42,7 +42,7 @@ get_board() {
         "ODROIDU2") export BOARD="odroidu2" ;;
         "ODROID-XU3") export BOARD="odroidxu3" ;;
         "ODROIDC") export BOARD="odroidc" ;;
-        "HARDKERNEL")
+        "Hardkernel")
             export BOARD="odroidn2" ;;
             *)
                 msgbox "GET-BOARD: Couldn't identify your board $B please report on GitHub"
