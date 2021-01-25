@@ -1,7 +1,7 @@
 TOOL - ODROID UTILITY
 =====================
 
-I've started to write this script to replace kernel-update. It does WAY more than the current kernel-update is doing. I plan to replace kernel-update with this tool very soon.
+Fork of MDRJR's script, to add support for additional boards + update deprecated functionality
 
 **Sources:** https://github.com/mdrjr/odroid-utility
 
@@ -10,7 +10,7 @@ I've started to write this script to replace kernel-update. It does WAY more tha
 ```
 sudo -s
 
-wget -O /usr/local/bin/odroid-utility.sh https://raw.githubusercontent.com/mdrjr/odroid-utility/master/odroid-utility.sh
+wget -O /usr/local/bin/odroid-utility.sh https://raw.githubusercontent.com/eribbey/odroid-utility/master/odroid-utility.sh
 
 chmod +x /usr/local/bin/odroid-utility.sh
 
