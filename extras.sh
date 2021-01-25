@@ -3,7 +3,7 @@
 do_exit() {
 	if [ $REBOOT -eq 1 ]; then
 		whiptail --backtitle "Hardkernel ODROID Utility v$_REV" --msgbox \
-		"You need to reboot your board to the new modifications take effects" 0 0
+		"You need to reboot your board for new modifications to take effect" 0 0
 	fi
 	sync
 	exit 0
@@ -26,7 +26,7 @@ dlf_fast() {
 
 msgbox() {
 	# $1 is the msg
-	whiptail --backtitle "Hardkernel ODROID Utility v$_REV" --msgbox "$1" 0 0 0 
+	whiptail --backtitle "Hardkernel ODROID Utility v$_REV EDIT" --msgbox "$1" 0 0 0 
 }
 
 get_board() {
@@ -42,8 +42,19 @@ get_board() {
                 "ODROIDU2") export BOARD="odroidu2" ;;
                 "ODROID-XU3") export BOARD="odroidxu3" ;;
                 "ODROIDC") export BOARD="odroidc" ;;
+				"HARDKERNEL")
+						C='cat /proc/cpuinfo | grep -i odroid | awk {'print $4'}'
+						case "$C" in
+							"ODROID-N2") 
+								export BOARD="odroidn2" 
+								msgbox "GET-BOARD: Identified as ODROID N2"
+								;;
+							*)
+							msgbox "GET-BOARD: Couldn't identify your board $C please report on GitHub"
+							;;
+							esac
                 *)
-                        msgbox "GET-BOARD: Couldn't identify your board $B please report on the forums"
+                        msgbox "GET-BOARD: Couldn't identify your board $B please report on GitHub"
                         ;;
         esac 
 }
