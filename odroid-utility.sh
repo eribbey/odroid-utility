@@ -73,10 +73,10 @@ install_bootstrap_packages() {
 
 update_internals() {
 	echo "Performing scripts updates"
-	baseurl="https://raw.githubusercontent.com/mdrjr/odroid-utility/master"
+	baseurl="https://raw.githubusercontent.com/eribbey/odroid-utility/master"
 	
 	FILES=`curl -s $baseurl/files.txt`
-	APP_REV=`curl -s https://api.github.com/repos/mdrjr/odroid-utility/git/refs/heads/master | awk '{ if ($1 == "\"sha\":") { print substr($2, 2, 40) } }'`
+	APP_REV=`curl -s https://api.github.com/repos/eribbey/odroid-utility/git/refs/heads/master | awk '{ if ($1 == "\"sha\":") { print substr($2, 2, 40) } }'`
 	
 	for fu in $FILES; do
 		echo "Updating: $fu"
@@ -84,7 +84,7 @@ update_internals() {
 		curl -s $baseurl/$fu > $_B/$fu
 	done
 
-	export _REV="1.4 GitRev: $APP_REV"
+	export _REV="1.4.1 GitRev: $APP_REV"
 	
 	chmod +x $_B/odroid-utility.sh
 }
