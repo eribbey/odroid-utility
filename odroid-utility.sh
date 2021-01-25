@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ODROID Utility v2
+# odroid-utiilty
 
 # For debug uncomment
 # set -x
@@ -28,8 +28,7 @@ initialization() {
 						;;
                 *)
                         echo "I couldn't identify your distribution."
-                        echo "Please report this error on the forums"
-                        echo "http://forum.odroid.com"
+                        echo "Please report this error on the GitHub repo."
                         echo "debug info: "
                         lsb_release -a
                         exit 0

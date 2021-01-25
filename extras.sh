@@ -43,7 +43,9 @@ get_board() {
         "ODROID-XU3") export BOARD="odroidxu3" ;;
         "ODROIDC") export BOARD="odroidc" ;;
         "Hardkernel")
-            export BOARD="odroidn2" ;;
+			C=`cat /proc/cpuinfo  | grep -i odroid | awk {'print $4'}`
+			case "$C" in
+			"ODROID-N2") export BOARD="odroidn2" ;;
             *)
                 msgbox "GET-BOARD: Couldn't identify your board $B please report on GitHub"
             ;;

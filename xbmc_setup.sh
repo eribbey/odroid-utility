@@ -6,7 +6,7 @@ xbmc_setup() {
 	
 	do_5422_1504_apt_update
 	
-	if [ "$BOARD" = "odroidc" ]; then
+	if [ "$BOARD" = "odroidc" || "$BOARD" = "odroidn2"]; then
 		msgbox "Use apt-get install kodi   or   apt-get update && apt-get dist-upgrade"
 		return
 	fi

@@ -1,9 +1,9 @@
-TOOL - ODROID UTILITY
+odroid-utility
 =====================
 
-Fork of MDRJR's script, to add support for additional boards + update deprecated functionality
+Fork of MDRJR's script, created to add support for additional boards + update deprecated functionality
 
-**Sources:** https://github.com/mdrjr/odroid-utility
+**Original Source:** https://github.com/mdrjr/odroid-utility
 
 **How to Install :**
 
@@ -17,9 +17,14 @@ chmod +x /usr/local/bin/odroid-utility.sh
 odroid-utility.sh
 ```
 
-Don't worry about the extra files. The script self-updates itself everytime it's started.
+The script references several companion pieces
 
-**What is supported :**
+**Added Functionality :**
+
+* Supports the following new(ish) boards: ODROID-N2
+* Streamlines startup process
+
+**Original Functionality :**
 
 * Debian and Ubuntu.
 * Xorg on/off,
@@ -31,6 +36,5 @@ Don't worry about the extra files. The script self-updates itself everytime it's
 * Filesystem resize.
 
 **TODO :**
-
 
 Ideas and patches are welcome. Either post a diff with your e-mail and name or submit a PR on github.
