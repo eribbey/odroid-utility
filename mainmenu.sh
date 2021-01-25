@@ -19,7 +19,7 @@ while true; do
 	fi
 	
 	
-	CC=$(whiptail --backtitle "Hardkernel ODROID Utility v$_REV" --menu "Main Menu" 0 0 1 --cancel-button "Exit" --ok-button "Select" \
+	CC=$(whiptail --backtitle "Hardkernel ODROID Utility v$_REV Board: $BOARD" --menu "Main Menu" 0 0 1 --cancel-button "Exit" --ok-button "Select" \
 		"${menu_items[@]}" \
 		3>&1 1>&2 2>&3)
 	

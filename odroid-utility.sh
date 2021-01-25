@@ -80,7 +80,7 @@ update_internals() {
 	
 	for fu in $FILES; do
 		echo "Checking: $fu"
-		online_md5="$(curl -sL $baseurl/$fu | md5sum | cut-d ' ' -f 1)"
+		online_md5="$(curl -sL $baseurl/$fu | md5sum | cut -d ' ' -f 1)"
 		local_md5="$(md5sum $_B/$fu | cut -d ' ' -f 1)"
 		if [ "$online_md5" != "$local_md5" ]; then	
 			echo "Updating: $fu"
@@ -88,7 +88,7 @@ update_internals() {
 			curl -s $baseurl/$fu > $_B/$fu
 			fi
 	done
-	export _REV="1.4.1 Board: $BOARD"
+	export _REV="1.4.1"
 	#export _REV="1.4.1 GitRev: $APP_REV"
 	
 	chmod +x $_B/odroid-utility.sh
