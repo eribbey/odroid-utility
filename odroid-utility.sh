@@ -72,7 +72,7 @@ install_bootstrap_packages() {
 }
 
 update_internals() {
-	echo "Performing scripts updates"
+	echo "Checking for companion script updates"
 	baseurl="https://raw.githubusercontent.com/eribbey/odroid-utility/master"
 	
 	FILES=`curl -s $baseurl/files.txt`
